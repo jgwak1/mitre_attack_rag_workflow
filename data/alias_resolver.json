@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "description": "Analyst-curated behavior alias resolver for mapping threat-report phrases to candidate MITRE ATT&CK techniques.",
+    "source_type": "internal_analyst_curated",
+    "official_mitre_source": false
+  },
+  "aliases": {
+    "encoded powershell": {
+      "candidate_techniques": ["T1059.001", "T1027"],
+      "note": "May indicate PowerShell execution and command obfuscation."
+    },
+    "payload download": {
+      "candidate_techniques": ["T1105"],
+      "note": "Common behavior phrase for transferring a payload into the environment."
+    },
+    "credential dump": {
+      "candidate_techniques": ["T1003"],
+      "note": "Maps to OS Credential Dumping when the report describes dumping OS credentials."
+    },
+    "lsass dump": {
+      "candidate_techniques": ["T1003"],
+      "note": "LSASS access or dumping is commonly associated with OS Credential Dumping."
+    },
+    "system discovery": {
+      "candidate_techniques": ["T1082"],
+      "note": "Host or OS information collection."
+    },
+    "directory discovery": {
+      "candidate_techniques": ["T1083"],
+      "note": "File or directory enumeration behavior."
+    },
+    "wmi execution": {
+      "candidate_techniques": ["T1047"],
+      "note": "Use of WMI or WMIC for command execution."
+    },
+    "cmd execution": {
+      "candidate_techniques": ["T1059.003"],
+      "note": "Use of Windows command shell."
+    }
+  }
+}

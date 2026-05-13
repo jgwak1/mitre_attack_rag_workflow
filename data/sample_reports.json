@@ -2,19 +2,19 @@
   {
     "report_id": "r1",
     "query": "Analyze this threat report and map the behavior to MITRE ATT&CK techniques.",
-    "report_text": "The attacker executed encoded PowerShell commands and used Invoke-WebRequest to download a payload from a remote server.",
+    "report_text": "Summary: The intrusion involved script-based execution and payload staging.\n\nObserved Activity: The attacker executed encoded PowerShell commands on the host. The script then used Invoke-WebRequest to download payload.exe from a remote server.\n\nIndicators: powershell -enc, Invoke-WebRequest, payload.exe.\n\nAnalyst Note: No clear persistence behavior was observed.",
     "expected_techniques": ["T1059.001", "T1105", "T1027"]
   },
   {
     "report_id": "r2",
     "query": "Identify likely ATT&CK techniques in this incident summary.",
-    "report_text": "The malware ran cmd.exe, listed directories, and collected host information using systeminfo and whoami.",
+    "report_text": "Incident note: malware launched cmd.exe /c from a user directory. After execution, it ran dir commands to inspect local folders and used systeminfo and whoami to collect host and user information.",
     "expected_techniques": ["T1059.003", "T1083", "T1082"]
   },
   {
     "report_id": "r3",
     "query": "Map the described behavior to ATT&CK techniques.",
-    "report_text": "The adversary used wmic for remote command execution and later attempted to dump LSASS memory to obtain credentials.",
+    "report_text": "The adversary appeared to use wmic to create a process remotely on another Windows host. Later in the intrusion, the report notes access to LSASS memory and an attempt to obtain stored credentials.",
     "expected_techniques": ["T1047", "T1003"]
   }
 ]
