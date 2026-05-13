@@ -1,0 +1,16 @@
+fastapi
+uvicorn[standard]
+
+pydantic
+pydantic-settings
+python-dotenv
+
+numpy
+scikit-learn
+rank-bm25
+faiss-cpu
+
+sqlalchemy
+
+rich
+pytest

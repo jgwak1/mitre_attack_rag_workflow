@@ -1,0 +1,82 @@
+[
+  {
+    "technique_id": "T1059.001",
+    "name": "PowerShell",
+    "tactic": "Execution",
+    "description": "Adversaries may use PowerShell commands or scripts to execute malicious behavior.",
+    "retrieval_terms": ["powershell", "encodedcommand", "-enc", "script execution", "invoke-expression", "iex"],
+    "behavior_aliases": ["encoded powershell", "powershell execution", "powershell script"],
+    "source": "MITRE ATT&CK hand-curated prototype subset",
+    "source_url": "https://attack.mitre.org/techniques/T1059/001/"
+  },
+  {
+    "technique_id": "T1059.003",
+    "name": "Windows Command Shell",
+    "tactic": "Execution",
+    "description": "Adversaries may use the Windows command shell to execute commands or scripts.",
+    "retrieval_terms": ["cmd.exe", "command shell", "batch file", "windows shell", "cmd /c"],
+    "behavior_aliases": ["cmd execution", "windows shell execution"],
+    "source": "MITRE ATT&CK hand-curated prototype subset",
+    "source_url": "https://attack.mitre.org/techniques/T1059/003/"
+  },
+  {
+    "technique_id": "T1105",
+    "name": "Ingress Tool Transfer",
+    "tactic": "Command and Control",
+    "description": "Adversaries may transfer tools or payloads from an external system into a compromised environment.",
+    "retrieval_terms": ["download", "payload", "invoke-webrequest", "curl", "wget", "remote server", "tool transfer"],
+    "behavior_aliases": ["payload download", "tool download", "downloaded payload"],
+    "source": "MITRE ATT&CK hand-curated prototype subset",
+    "source_url": "https://attack.mitre.org/techniques/T1105/"
+  },
+  {
+    "technique_id": "T1027",
+    "name": "Obfuscated Files or Information",
+    "tactic": "Defense Evasion",
+    "description": "Adversaries may make files, commands, or other artifacts difficult to analyze or detect.",
+    "retrieval_terms": ["encoded", "obfuscated", "base64", "-enc", "packed", "encoded command"],
+    "behavior_aliases": ["obfuscation", "encoded command", "base64 command"],
+    "source": "MITRE ATT&CK hand-curated prototype subset",
+    "source_url": "https://attack.mitre.org/techniques/T1027/"
+  },
+  {
+    "technique_id": "T1003",
+    "name": "OS Credential Dumping",
+    "tactic": "Credential Access",
+    "description": "Adversaries may attempt to dump credentials from the operating system or credential stores.",
+    "retrieval_terms": ["credential dumping", "lsass", "mimikatz", "password hash", "dump credentials", "sekurlsa"],
+    "behavior_aliases": ["credential dump", "dumping credentials", "lsass dump"],
+    "source": "MITRE ATT&CK hand-curated prototype subset",
+    "source_url": "https://attack.mitre.org/techniques/T1003/"
+  },
+  {
+    "technique_id": "T1082",
+    "name": "System Information Discovery",
+    "tactic": "Discovery",
+    "description": "Adversaries may collect information about the operating system, host, or hardware.",
+    "retrieval_terms": ["systeminfo", "hostname", "whoami", "os version", "host information", "system discovery"],
+    "behavior_aliases": ["system discovery", "host discovery", "system information collection"],
+    "source": "MITRE ATT&CK hand-curated prototype subset",
+    "source_url": "https://attack.mitre.org/techniques/T1082/"
+  },
+  {
+    "technique_id": "T1083",
+    "name": "File and Directory Discovery",
+    "tactic": "Discovery",
+    "description": "Adversaries may enumerate files and directories or search specific file system locations.",
+    "retrieval_terms": ["dir", "ls", "find", "directory listing", "file enumeration", "recursive listing"],
+    "behavior_aliases": ["file discovery", "directory discovery", "file enumeration"],
+    "source": "MITRE ATT&CK hand-curated prototype subset",
+    "source_url": "https://attack.mitre.org/techniques/T1083/"
+  },
+  {
+    "technique_id": "T1047",
+    "name": "Windows Management Instrumentation",
+    "tactic": "Execution",
+    "description": "Adversaries may use Windows Management Instrumentation to execute commands or gather information.",
+    "retrieval_terms": ["wmic", "wmi", "winmgmt", "remote execution", "process call create"],
+    "behavior_aliases": ["wmi execution", "wmic execution", "wmi command execution"],
+    "source": "MITRE ATT&CK hand-curated prototype subset",
+    "source_url": "https://attack.mitre.org/techniques/T1047/"
+  }
+]

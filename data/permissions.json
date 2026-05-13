@@ -1,0 +1,7 @@
+{
+  "default_user": {
+    "allowed_sources": ["local_mitre_attack_json"],
+    "allowed_tools": ["local_alias_resolver", "local_attack_lookup"],
+    "can_use_external_lookup": false
+  }
+}
