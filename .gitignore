@@ -6,3 +6,4 @@ outputs/*.json
 outputs/*.log
 .DS_Store
 .vscode/
+traces/
