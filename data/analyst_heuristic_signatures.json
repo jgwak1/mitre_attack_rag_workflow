@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "description": "Analyst-curated behavior alias resolver for mapping threat-report phrases to candidate MITRE ATT&CK techniques.",
-    "source_type": "internal_analyst_curated",
-    "official_mitre_source": false
+  "description": "Analyst-curated heuristic behavior signatures for adding candidate MITRE ATT&CK techniques from observed threat-report phrases.",
+  "source_type": "internal_analyst_curated",
+  "official_mitre_source": false
   },
-  "aliases": {
+  "signatures": {
     "encoded powershell": {
       "candidate_techniques": ["T1059.001", "T1027"],
       "note": "May indicate PowerShell execution and command obfuscation."

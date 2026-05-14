@@ -43,20 +43,20 @@ class AttackTechniqueRecord(BaseModel):
 # }
 
 
-class AliasResolverMetadata(BaseModel):
+class AnalystHeuristicSignatureMetadata(BaseModel):
     description: str | None = None
     source_type: str | None = None
     official_mitre_source: bool = False
 
 
-class AliasResolverEntry(BaseModel):
+class AnalystHeuristicSignature(BaseModel):
     candidate_techniques: list[str]
     note: str | None = None
 
 
-class AliasResolverConfig(BaseModel):
-    metadata: AliasResolverMetadata = Field(default_factory=AliasResolverMetadata)
-    aliases: dict[str, AliasResolverEntry] = Field(default_factory=dict)
+class AnalystHeuristicSignatureConfig(BaseModel):
+    metadata: AnalystHeuristicSignatureMetadata = Field(default_factory=AnalystHeuristicSignatureMetadata)
+    aliases: dict[str, AnalystHeuristicSignature] = Field(default_factory=dict)
 
 
 # -----------------------------

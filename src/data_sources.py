@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Any
 
 from src.schemas import (
-    AliasResolverConfig,
+    AnalystHeuristicSignatureConfig,
     AttackTechniqueRecord,
     PermissionsConfig,
     ThreatReport,
@@ -21,9 +21,9 @@ DATA_DIR = PROJECT_ROOT / "data"
 class LocalDataSources:
     # Validated local data loaded from the data/ directory.
     # This object gives later modules one clean place to access the corpus,
-    # alias resolver, sample reports, and permission settings.
+    # analyst_heuristic_signatures, sample reports, and permission settings.
     attack_techniques: list[AttackTechniqueRecord]
-    alias_resolver: AliasResolverConfig
+    analyst_heuristic_signatures: AnalystHeuristicSignatureConfig
     sample_reports: list[ThreatReport]
     permissions: PermissionsConfig
 
@@ -42,11 +42,11 @@ def load_attack_techniques(data_dir: Path = DATA_DIR) -> list[AttackTechniqueRec
     return [AttackTechniqueRecord.model_validate(record) for record in raw_records]
 
 
-def load_alias_resolver(data_dir: Path = DATA_DIR) -> AliasResolverConfig:
-    # Load and validate the analyst-curated alias resolver.
+def load_analyst_heuristic_signatures(data_dir: Path = DATA_DIR) -> AnalystHeuristicSignatureConfig:
+    # Load and validate the analyst-curated analyst_heuristic_signatures.
     # This maps behavior phrases to candidate ATT&CK techniques.
-    raw_config = load_json(data_dir / "alias_resolver.json")
-    return AliasResolverConfig.model_validate(raw_config)
+    raw_config = load_json(data_dir / "analyst_heuristic_signatures.json")
+    return AnalystHeuristicSignatureConfig.model_validate(raw_config)
 
 
 def load_sample_reports(data_dir: Path = DATA_DIR) -> list[ThreatReport]:
@@ -67,7 +67,7 @@ def load_all_data(data_dir: Path = DATA_DIR) -> LocalDataSources:
     # Convenience loader for later pipeline modules and tests.
     return LocalDataSources(
         attack_techniques=load_attack_techniques(data_dir),
-        alias_resolver=load_alias_resolver(data_dir),
+        analyst_heuristic_signatures=load_analyst_heuristic_signatures(data_dir),
         sample_reports=load_sample_reports(data_dir),
         permissions=load_permissions(data_dir),
     )

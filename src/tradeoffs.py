@@ -1,0 +1,1 @@
+# Classic entity normalization, such as mapping powershell.exe or pwsh to PowerShell, is out of scope for v1 and can be added later with a separate canonical tool/software dictionary.
