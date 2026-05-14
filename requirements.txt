@@ -15,3 +15,7 @@ sqlalchemy
 
 rich
 pytest
+
+litellm
+fastmcp
+mcp
