@@ -32,9 +32,9 @@ class AttackTechniqueRecord(BaseModel):
 
 
 # -----------------------------
-# Alias resolver
+# Analyst heuristic signatures
 # -----------------------------
-# Matches data/alias_resolver.json.
+# Matches data/analyst_heuristic_signatures.json.
 # The phrase itself is the dictionary key.
 # Example:
 # "encoded powershell": {
@@ -49,14 +49,14 @@ class AnalystHeuristicSignatureMetadata(BaseModel):
     official_mitre_source: bool = False
 
 
-class AnalystHeuristicSignature(BaseModel):
+class AnalystHeuristicSignatureEntry(BaseModel):
     candidate_techniques: list[str]
     note: str | None = None
 
 
 class AnalystHeuristicSignatureConfig(BaseModel):
-    metadata: AnalystHeuristicSignatureMetadata = Field(default_factory=AnalystHeuristicSignatureMetadata)
-    aliases: dict[str, AnalystHeuristicSignature] = Field(default_factory=dict)
+    metadata: AnalystHeuristicSignatureMetadata
+    signatures: dict[str, AnalystHeuristicSignatureEntry]
 
 
 # -----------------------------
@@ -146,7 +146,7 @@ class IngestedReport(BaseModel):
 
 class ExtractedEntities(BaseModel):
     # Output from the lightweight entity/phrase extraction step.
-    # These fields help retrieval and alias resolution.
+    # These fields help retrieval and candidate expansion.
     # This is intentionally simple for now.
     commands: list[str] = Field(default_factory=list)
     tools: list[str] = Field(default_factory=list)
@@ -168,7 +168,7 @@ class EvidenceSpan(BaseModel):
 
 class TechniqueCandidate(BaseModel):
     # A candidate MITRE ATT&CK technique returned by retrieval, reranking,
-    # alias resolution, or local lookup.
+    # candidate expansion, or local lookup.
     # score is the retrieval or reranking score.
     # confidence is the final calibrated confidence, if generation.py sets it.
     # evidence stores report spans supporting the mapping.
