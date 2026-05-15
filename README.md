@@ -7,12 +7,12 @@ This project maps threat-report behavior to MITRE ATT&CK techniques using a cand
 ```mermaid
 flowchart TD
     A[Raw threat report text] --> B[ingestion.py<br/>clean text + extract artifacts]
-    B --> C[indexing.py<br/>build searchable ATT&CK documents]
-    C --> D[retrieval.py<br/>BM25 / TF-IDF / vector / hybrid]
+    B --> C[indexing.py<br/>build searchable<br/>MITRE ATT%CK docs]
+    C --> D[retrieval.py<br/>BM25 / TF-IDF /<br/> vector / hybrid]
     D --> E[candidate_expansion.py<br/>analyst heuristic candidates]
     E --> F[planner.py<br/>plan local tool use]
     F --> G[tools.py<br/>lookup ATT&CK details]
-    G --> H[generation.py<br/>LiteLLM or deterministic fallback]
+    G --> H[generation.py<br/>LiteLLM or <br/>deterministic fallback]
     H --> I[trace.py<br/>JSON-safe run trace]
     I --> J[database.py<br/>optional SQLite persistence]
     H --> K[API response<br/>generated mappings]
