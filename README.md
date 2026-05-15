@@ -15,7 +15,7 @@ flowchart TD
     G --> H[generation.py<br/>LiteLLM or deterministic fallback]
     H --> I[trace.py<br/>JSON-safe run trace]
     I --> J[database.py<br/>optional SQLite persistence]
-    H --> K[API response / generated mappings]
+    H --> K[API response<br/>generated mappings]
 
     L[evaluation.py] --> M[regression.py]
     M --> N[tests/test_regression.py]
@@ -235,21 +235,3 @@ production vector store / search backend
 richer UI
 ```
 
-## Architecture Summary
-
-```text
-pipeline.py
-= reusable runner
-
-evaluation.py
-= scoring and output-check functions
-
-regression.py
-= applies evaluation repeatedly to labeled sample reports
-
-tests/test_regression.py
-= pytest pass/fail wrapper for the regression suites
-
-api.py + app.py
-= HTTP serving layer
-```
